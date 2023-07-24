@@ -1,0 +1,24 @@
+<div>
+    <h2 class="title">Forgot Password</h2>
+    <p>We will send a reset password link to your email </p>
+    <form [formGroup]="forgotForm" method="post" (submit)="forgot()">
+        <div class="input">
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput  type="email"  formControlName="email" required>
+                <mat-error *ngIf="forgotForm.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" mat-raised-button [disabled]="forgotForm.invalid">Send</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="message; else noMessage">
+    <p class="message">{{message}}</p>
+</div>
+<ng-template #noMessage>
+    no message
+</ng-template>
+
+

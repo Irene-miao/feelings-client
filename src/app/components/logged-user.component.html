@@ -1,0 +1,14 @@
+<div class="container">
+    <div *ngIf="user else noUser">
+        <div class="logged">
+            <img [src]="picture" width="60" height="50">
+            <p>{{user.username | uppercase }} logged in</p>
+        </div>
+        <button mat-raised-button type="button" (click)="logout()">Logout</button>
+            <button type="button" color="warn" mat-raised-button (click)="deleteUser(user.username)">Delete User</button>
+    </div>
+    <ng-template #noUser>
+        no user
+    </ng-template>
+</div>
+

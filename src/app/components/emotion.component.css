@@ -1,0 +1,42 @@
+.card {
+    max-width: 400px;
+    margin-bottom: 8px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor:grab;
+}
+
+
+
+@media screen and (max-width: 600px){
+    .sub-header{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 0.85rem;
+        padding: 5px;
+        color: #4a4e69;
+    font-size: small;
+    text-align:center;
+    }
+
+    .text {
+        font-size: 0.75rem;
+    }
+}
+
+button:hover {
+    color: #2d6a4f; 
+    background-color: transparent;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333645;
+    text-align:center;
+}

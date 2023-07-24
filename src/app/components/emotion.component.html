@@ -1,0 +1,51 @@
+<div *ngIf="emotion$ | async as e">
+    <mat-card class="card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>
+                    {{e.label | uppercase}}
+                </mat-card-title>
+                <img mat-card-md-image src="/assets/{{e.label}}.png" width="200" [alt]="e.label">
+            </mat-card-title-group>
+        </mat-card-header>
+    </mat-card>
+   <div *ngIf="e; else noEmo">
+    <mat-list>
+        <mat-list-item>
+            <span matListItemTitle class="title">Share the experiences that made you {{e.label}} with us</span>
+        </mat-list-item>
+        <mat-list-item>
+            <button mat-raised-button  [routerLink]="['/post']">POST</button>
+        </mat-list-item>
+    </mat-list>
+    <mat-list>
+        <div mat-subheader class="sub-header">Useful strategies that you can try</div>
+        <mat-list-item  *ngFor="let s of e.strategies" class="item-s">
+            <span matListItemLine class="text"> {{s}}</span>
+        </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <div mat-subheader class="sub-header">Listen to music that makes you feel good</div>
+        <mat-list-item  *ngFor="let m of musicArr" class="item-m">
+            <a href="{{m.youtube}}" target="_blank"> 
+                <span matListItemLine class="text"> {{m.name}}</span>
+               </a>
+        </mat-list-item>
+    </mat-list>
+    <mat-divider></mat-divider>
+    <mat-list>
+        <div mat-subheader class="sub-header">Select a fun test to take</div>
+        <mat-list-item  *ngFor="let l of e.test_links" class="item-l">
+     <a href="{{l}}" target="_blank">
+                <span matListItemLine class="text"> {{l }}</span>
+               </a>
+        </mat-list-item>
+    </mat-list>
+   </div>
+   <ng-template #noEmo>
+    no emotion details
+   </ng-template>
+</div>
+
+

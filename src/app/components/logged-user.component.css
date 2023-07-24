@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+
+.logged {
+    display:flex;
+    flex-direction: row;
+    gap: 5px;
+    justify-content: flex-end;
+    align-items: center;
+    padding:5px;
+}
+
+button {
+    margin: 3px;
+}
+
+button:hover {
+    color: #2d6a4f; 
+    background-color: transparent;
+}

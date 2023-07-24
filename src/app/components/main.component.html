@@ -1,0 +1,15 @@
+<div class="container">
+    <div>
+        <h2>How are you feeling today?</h2>
+    </div>
+    <mat-list>
+        <div mat-subheader class="sub-header">Select the emoji that best describe your emotion</div>
+        <mat-list-item  *ngFor="let e of emotions" class="item">
+            <span matListItemAvatar> <a [routerLink]="['/emotion', e]" >
+                <img src="/assets/{{e}}.png" width="60" height="60" [alt]="e">
+               </a></span>
+            <span matListItemLine class="text"> {{e | uppercase }}</span>
+        </mat-list-item>
+    </mat-list>
+</div>
+

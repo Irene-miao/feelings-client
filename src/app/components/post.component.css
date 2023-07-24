@@ -1,0 +1,25 @@
+button:hover {
+    color: #2d6a4f; 
+    background-color: transparent;
+}
+
+span {
+    margin: 5px;
+}
+
+button {
+    margin:3px;
+}
+
+@media screen and (max-width: 600px){
+    .title {
+        font-size: 1rem;
+        font-weight: 500;
+    color: #333645;
+    }
+    
+    .sub-header{
+        font-size: 0.8rem;
+        color: #4a4e69;
+    }
+}

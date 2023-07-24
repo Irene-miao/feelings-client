@@ -1,0 +1,20 @@
+.input {
+    margin-left: 8px;
+}
+
+button:hover {
+    color: #2d6a4f; 
+    background-color: transparent;
+}
+
+button {
+    margin:5px;
+}
+
+.title {
+    color: #333645;
+}
+
+.message {
+     color: #2d6a4f;
+}

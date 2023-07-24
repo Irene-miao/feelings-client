@@ -1,0 +1,46 @@
+<app-logged-user [user]="user"></app-logged-user>
+<div>
+    <h2 class="title">Experience Room</h2>
+    <p class="sub-header">View the experiences shared by many</p>
+    
+    <button  mat-raised-button [routerLink]="['/post']">Create Post</button>
+    <div *ngIf="newPostArr; else noPost">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User Avatar</th>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Date</th>
+                    <th></th>
+                 </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of newPostArr; let i = index">
+                   <td>
+                    <img src={{p.avatar_img}} width="50">
+                   </td>
+                   <td class="text">{{p.title}}</td>
+                   <td class="text">{{p.content}}</td>
+                   <td class="text">{{p.date | date}}</td>
+                   <td>
+                    <button class="btn" mat-raised-button color="warn" type="button" (click)="delete(i, p.post_id, p.user_id)">Delete</button>
+                   </td>    
+                </tr>
+                <tr>
+                    <td></td>
+                    <td >
+                        <button mat-raised-button type="button" (click)="prev()">previous</button>
+                    </td>
+                    <td >
+                        <button mat-raised-button type="button" (click)="next()">next</button>
+                    </td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #noPost>
+    no posts
+</ng-template>

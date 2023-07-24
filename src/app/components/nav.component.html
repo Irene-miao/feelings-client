@@ -1,0 +1,45 @@
+<div class="container">
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <button mat-icon-button class="btn" [matMenuTriggerFor]="aboveMenu" aria-label="menu icon button">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <a [routerLink]="['/']"><button mat-menu-item>
+                <mat-icon [ngStyle]="{'color': '#006d77'}">home</mat-icon>
+                <span class="text">Home</span>
+          </button>
+        </a>
+        <a [routerLink]="['/register']">
+          <button mat-menu-item>
+            <mat-icon [ngStyle]="{'color': '#006d77'}">how_to_reg</mat-icon>
+            <span class="text">Register</span>
+          </button>
+          </a>
+          <a [routerLink]="['/login']">
+          <button mat-menu-item>
+            <mat-icon [ngStyle]="{'color': '#006d77'}">login</mat-icon>
+            <span class="text">Login</span>
+          </button>
+          </a>
+          <a [routerLink]="['/postlist']">
+          <button mat-menu-item>
+            <mat-icon [ngStyle]="{'color': '#006d77'}">list_alt</mat-icon>
+            <span class="text">Posts</span>
+          </button>
+          </a>
+          <a [routerLink]="['/post']">
+          <button mat-menu-item>
+            <mat-icon [ngStyle]="{'color': '#006d77'}">create</mat-icon>
+            <span class="text">Create Post</span>
+          </button>
+          </a>
+        </mat-menu>
+        <img src="/assets/logo2.png" width="300">
+        <span class="title">App</span>
+      </mat-toolbar-row>
+    <mat-toolbar-row>
+      <span class="sub-header">We help you manage your emotions in a better way</span>
+    </mat-toolbar-row>
+    </mat-toolbar>
+    </div>

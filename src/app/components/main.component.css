@@ -1,0 +1,28 @@
+.container {
+    margin: 0 auto;
+    width: 85%;
+    padding: 10px;
+    
+}
+
+h2 {
+    color: #333645;
+    text-align:center;
+}
+
+.sub-header {
+    color: #4a4e69;
+    font-size: small;
+    text-align:center;
+}
+
+.item {
+    padding: 10px;
+    margin: 10px;
+    margin-left: 35%;
+}
+
+.text {
+    font-size: smaller;
+    margin-left: 10px;;
+}
