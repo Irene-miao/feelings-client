@@ -20,7 +20,7 @@ export class FeelingService {
   private userSubject!: BehaviorSubject<User | null>
   public user!: Observable<User | null>
   router = inject(Router)
-   url = "feelings-server-production.up.railway.app/";
+   url = "https://feelings-server-production.up.railway.app/";
 
   constructor() { 
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!))
