@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
+    'Access-Control-Allow-Origin': 'https://feelings-client-u9gohuf7k-irene-lee-livecomsg.vercel.app'
   })
 };
 
