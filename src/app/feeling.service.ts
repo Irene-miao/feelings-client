@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({ 
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://feelings-client-u9gohuf7k-irene-lee-livecomsg.vercel.app'
+    'Access-Control-Allow-Origin': '*'
   })
 };
 
@@ -20,7 +20,7 @@ export class FeelingService {
   private userSubject!: BehaviorSubject<User | null>
   public user!: Observable<User | null>
   router = inject(Router)
-   url = "https://feelings-server-production.up.railway.app/";
+   url = "http://localhost:8080/";
 
   constructor() { 
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!))
@@ -36,7 +36,7 @@ export class FeelingService {
   }
 
   register(formData: FormData): Promise<any>{
-    return firstValueFrom(this.http.post<any>(`${this.url}register`, formData, httpOptions)
+    return firstValueFrom(this.http.post<any>(`${this.url}register`, formData)
     )
   }
 
