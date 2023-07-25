@@ -19,27 +19,27 @@ export class AuthInterceptor implements HttpInterceptor {
   intercept(httpRequest: HttpRequest<any>, httpHandler: HttpHandler): Observable<HttpEvent<any>> {
     
     // no action if url = api/login
-    if (httpRequest.url.includes(`${this.feelingSvc.url}api/login`)){
+    if (httpRequest.url.includes("/login")){
       const req = httpRequest.clone()
       return httpHandler.handle(httpRequest);
     }
 
-    if (httpRequest.url.includes(`${this.feelingSvc.url}api/register`)){
+    if (httpRequest.url.includes("/register")){
       const req = httpRequest.clone()
       return httpHandler.handle(httpRequest);
     }
 
-    if (httpRequest.url.includes(`${this.feelingSvc.url}api/images`)){
+    if (httpRequest.url.includes("/images")){
       const req = httpRequest.clone()
       return httpHandler.handle(httpRequest);
     }
 
-    if (httpRequest.url.includes(`${this.feelingSvc.url}api/emotion/**`)){
+    if (httpRequest.url.includes("/emotion/**")){
       const req = httpRequest.clone()
       return httpHandler.handle(httpRequest);
     }
 
-    if (httpRequest.url.includes(`${this.feelingSvc.url}api/posts`)){
+    if (httpRequest.url.includes("/posts")){
       const req = httpRequest.clone()
       return httpHandler.handle(httpRequest);
     }

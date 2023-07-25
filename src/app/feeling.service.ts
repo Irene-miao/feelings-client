@@ -5,12 +5,7 @@ import { BehaviorSubject, Observable, firstValueFrom, map } from 'rxjs';
 import { Router } from '@angular/router';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({ 
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  })
-};
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +15,7 @@ export class FeelingService {
   private userSubject!: BehaviorSubject<User | null>
   public user!: Observable<User | null>
   router = inject(Router)
-   url = "https://feelings-server-production.up.railway.app/";
+
 
   constructor() { 
     this.userSubject = new BehaviorSubject(JSON.parse(localStorage.getItem('user')!))
@@ -32,17 +27,17 @@ export class FeelingService {
   }
 
   getEmotion(label: string):Observable<Emotion> {
-    return this.http.get<Emotion>(`${this.url}emotion/${label}`, httpOptions)
+    return this.http.get<Emotion>(`/emotion/${label}`)
   }
 
   register(formData: FormData): Promise<any>{
-    return firstValueFrom(this.http.post<any>(`${this.url}register`, formData)
+    return firstValueFrom(this.http.post<any>("/register", formData)
     )
   }
 
   login(form: User): Observable<any> {
  
-    return this.http.post<any>(`${this.url}login`, form, {observe: 'response'}).pipe(map(
+    return this.http.post<any>("/login", form, {observe: 'response'}).pipe(map(
       ( response) => {
         const user: User = response.body
         console.info(response)
@@ -63,7 +58,7 @@ export class FeelingService {
   }
 
   forgot(email: string): Observable<any>{
-    return this.http.post<any>(`${this.url}forgot`, email, httpOptions)
+    return this.http.post<any>("forgot", email)
   }
 
 
@@ -77,7 +72,7 @@ export class FeelingService {
   }
 
   logout() {
-    return this.http.post(`${this.url}logout`, {}, httpOptions).pipe(map(
+    return this.http.post("/logout", {}).pipe(map(
     data => {
       localStorage.removeItem('user')
     this.userSubject.next(null)
@@ -89,23 +84,23 @@ export class FeelingService {
 
   post(data: Post): Observable<any> {
     
-    return this.http.post<any>(`${this.url}post`, data, httpOptions)
+    return this.http.post<any>("/post", data)
   }
 
   getPosts(limit: number, offset: number): Observable<any> {
-    return this.http.get<any>(`${this.url}posts?limit=${limit}&offset=${offset}`, httpOptions)
+    return this.http.get<any>(`/posts?limit=${limit}&offset=${offset}`)
   }
 
   getImages(): Observable<any> {
-    return this.http.get<any>(`${this.url}images`, httpOptions)
+    return this.http.get<any>("images")
   }
 
   deletePost(postId: string): Observable<any> {
-    return this.http.delete<any>(`${this.url}posts/${postId}` ,  httpOptions)
+    return this.http.delete<any>(`/posts/${postId}`)
   }
 
   deleteUser(username: string): Observable<any>{
     console.info(username)
-    return this.http.delete<any>(`${this.url}users/${username}`, httpOptions)
+    return this.http.delete<any>(`/users/${username}`)
   }
 }
