@@ -32,11 +32,11 @@ export class FeelingService {
   }
 
   getEmotion(label: string):Observable<Emotion> {
-    return this.http.get<Emotion>(`${this.url}emotion/${label}`)
+    return this.http.get<Emotion>(`${this.url}emotion/${label}`, httpOptions)
   }
 
   register(formData: FormData): Promise<any>{
-    return firstValueFrom(this.http.post<any>(`${this.url}register`, formData)
+    return firstValueFrom(this.http.post<any>(`${this.url}register`, formData, httpOptions)
     )
   }
 
@@ -63,7 +63,7 @@ export class FeelingService {
   }
 
   forgot(email: string): Observable<any>{
-    return this.http.post<any>(`${this.url}forgot`, email)
+    return this.http.post<any>(`${this.url}forgot`, email, httpOptions)
   }
 
 
@@ -88,21 +88,16 @@ export class FeelingService {
   }
 
   post(data: Post): Observable<any> {
-    const httpOptions = {
-      headers: new HttpHeaders({ 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      })
-    };
+    
     return this.http.post<any>(`${this.url}post`, data, httpOptions)
   }
 
   getPosts(limit: number, offset: number): Observable<any> {
-    return this.http.get<any>(`${this.url}posts?limit=${limit}&offset=${offset}`)
+    return this.http.get<any>(`${this.url}posts?limit=${limit}&offset=${offset}`, httpOptions)
   }
 
   getImages(): Observable<any> {
-    return this.http.get<any>(`${this.url}images`)
+    return this.http.get<any>(`${this.url}images`, httpOptions)
   }
 
   deletePost(postId: string): Observable<any> {
